@@ -1,9 +1,11 @@
 # backendChatApp
 This is Stage two of Server ServerChat task in advance 2 course.
 
-The task was coded by Avia Hadad, Ori Angle, and David Gurovic.
+The task was coded by Avia Hadad, Ori Angel, and David Gurovich.
 The project main repositry can be found at:
 
+https://github.com/david13gurovich/Back-ChatApp
+and
 https://github.com/oriAngel62/backendChatApp.git
 This stage of the project focuses on building a back end of a Chat
 resembling a real server from social media tool such as Whatsupp, Discord, Facebook Chat etc'
