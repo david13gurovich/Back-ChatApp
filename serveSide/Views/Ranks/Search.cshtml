@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Domain.Rank>
+@*get users list to validate
+*@@{
+    ViewData["Title"] = "Index";
+    var sum = 0;
+    var count = 0;
+}
+@functions{
+    public void addCounter(int count)
+    { 
+        count++;
+    }
+}
+
+<h1>Ranking History</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RankNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        count++;
+        sum = sum + item.RankNum;
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.RankNum)
+                @* @sum =sum + item.RankNum;*@
+
+               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserName">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserName">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserName">Delete</a>
+
+            </td>
+        </tr>
+    }
+
+    <p>
+        <a asp-action="Create">Create New Rank!</a>
+    </p>
+    <form asp-action="Search"> <input name="query" id="search" />
+        <input type="submit" value="Search" />
+    </form>
+    </tbody>
+</table>
+<div>
+        <a asp-action="Index">Back to Full List</a>
+
+</div>
+
+@section Scripts{
+<script src="~/js/search.js">  </script>
+}
